@@ -20,7 +20,6 @@ const fetchPokemon = async (pokemon: string | number) => {
 
   if (APIResponse.status === 200) {
     const data = await APIResponse.json();
-    console.log(data);
     return data;
   }
 };
@@ -43,11 +42,8 @@ const renderPokemon = async (pokemon: string | number) => {
     input.value = "";
     searchPokemon = data.id;
 
-    
-     pokemonImage.style.height = `${data.height*0.5+10}%`;
+    pokemonImage.style.height = `${data.height * 0.5 + 10}%`;
     // console.log(` ${data.height*0.2+10} px`)
-
-      
 
     changeBackgroundColor(data);
   } else {
@@ -63,14 +59,14 @@ form.addEventListener("submit", (event) => {
   renderPokemon(input.value.toLowerCase());
 });
 
-buttonPrev.addEventListener("click", (event) => {
+buttonPrev.addEventListener("click", (_event) => {
   if (searchPokemon > 1) {
     searchPokemon -= 1;
     renderPokemon(searchPokemon);
   }
 });
 
-buttonNext.addEventListener("click", (event) => {
+buttonNext.addEventListener("click", (_event) => {
   searchPokemon += 1;
   renderPokemon(searchPokemon);
 });
