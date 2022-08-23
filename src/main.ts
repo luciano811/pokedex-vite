@@ -54,38 +54,47 @@ const renderPokemon = async (pokemon: string | number) => {
 };
 
 function renderZoeira() {
-  if ((input.value = "vitor")) pokemonName.innerHTML = "Vitinho";
-  pokemonNumber.innerHTML = "";
-  pokemonImage.src = "publicassetspokemon.vi.PNG";
-  input.value = "";
+  if (input.value === "vitor") {
+    pokemonName.innerHTML = "Vitinho";
+    pokemonNumber.innerHTML = "";
+    pokemonImage.src = "/pokedex-vite/assets/pokemon.vi.png";
+    input.value = "";
+  }
 
-  if ((input.value = "leticia")) pokemonName.innerHTML = "Lelê";
-  pokemonNumber.innerHTML = "";
-  pokemonImage.src = "publicassetspokemon.le.PNG";
-  input.value = "";
+  if (input.value === "leticia") {
+    pokemonName.innerHTML = "Lelê";
+    pokemonNumber.innerHTML = "";
+    pokemonImage.src = "/pokedex-vite/assets/pokemon.le.png";
+    input.value = "";
+  }
 
-  if ((input.value = "marcelo")) pokemonName.innerHTML = "Macelão";
-  pokemonNumber.innerHTML = "";
-  pokemonImage.src = "publicassetspokemon.pai.PNG";
-  input.value = "";
+  if (input.value === "marcelo") {
+    pokemonName.innerHTML = "Macelão";
+    pokemonNumber.innerHTML = "";
+    pokemonImage.src = "/pokedex-vite/assets/pokemon.pai.png";
+    input.value = "";
+  }
 
-  if ((input.value = "luciana")) pokemonName.innerHTML = "Mãe";
-  pokemonNumber.innerHTML = "";
-  pokemonImage.src = "publicassetspokemon.mae.PNG";
-  input.value = "";
+  if (input.value === "luciana") {
+    pokemonName.innerHTML = "Mãe";
+    pokemonNumber.innerHTML = "";
+    pokemonImage.src = "/pokedex-vite/assets/pokemon.mae.png";
+    input.value = "";
+  }
 
-  if ((input.value = "luciano")) pokemonName.innerHTML = "Lulu";
-  pokemonNumber.innerHTML = "";
-  pokemonImage.src = "publicassetspokemon.lu.PNG";
-  input.value = "";
-
-  return;
+  if (input.value === "luciano") {
+    pokemonName.innerHTML = "Lulu";
+    pokemonNumber.innerHTML = "";
+    pokemonImage.src = "/pokedex-vite/assets/pokemon.lu.png";
+    input.value = "";
+  }
 }
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   renderZoeira();
+  return;
 
   renderPokemon(input.value.toLowerCase());
 });
