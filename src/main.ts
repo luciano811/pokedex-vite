@@ -53,8 +53,39 @@ const renderPokemon = async (pokemon: string | number) => {
   }
 };
 
+function renderZoeira() {
+  if ((input.value = "vitor")) pokemonName.innerHTML = "Vitinho";
+  pokemonNumber.innerHTML = "";
+  pokemonImage.src = "publicassetspokemon.vi.PNG";
+  input.value = "";
+
+  if ((input.value = "leticia")) pokemonName.innerHTML = "Lelê";
+  pokemonNumber.innerHTML = "";
+  pokemonImage.src = "publicassetspokemon.le.PNG";
+  input.value = "";
+
+  if ((input.value = "marcelo")) pokemonName.innerHTML = "Macelão";
+  pokemonNumber.innerHTML = "";
+  pokemonImage.src = "publicassetspokemon.pai.PNG";
+  input.value = "";
+
+  if ((input.value = "luciana")) pokemonName.innerHTML = "Mãe";
+  pokemonNumber.innerHTML = "";
+  pokemonImage.src = "publicassetspokemon.mae.PNG";
+  input.value = "";
+
+  if ((input.value = "luciano")) pokemonName.innerHTML = "Lulu";
+  pokemonNumber.innerHTML = "";
+  pokemonImage.src = "publicassetspokemon.lu.PNG";
+  input.value = "";
+
+  return;
+}
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+
+  renderZoeira();
 
   renderPokemon(input.value.toLowerCase());
 });
