@@ -10,6 +10,7 @@ const form = document.querySelector(".form") as HTMLFormElement;
 const input = document.querySelector(".input__search") as HTMLInputElement;
 const buttonPrev = document.querySelector(".btn-prev") as HTMLButtonElement;
 const buttonNext = document.querySelector(".btn-next") as HTMLButtonElement;
+const buttonPesq = document.querySelector(".btn-pesq") as HTMLButtonElement;
 
 let searchPokemon = 1;
 
@@ -54,35 +55,35 @@ const renderPokemon = async (pokemon: string | number) => {
 };
 
 function renderZoeira() {
-  if (input.value === "vitor") {
+  if (input.value.toLowerCase() === "vitor") {
     pokemonName.innerHTML = "Vitinho";
     pokemonNumber.innerHTML = "";
     pokemonImage.src = "/pokedex-vite/assets/pokemon.vi.png";
     input.value = "";
   }
 
-  if (input.value === "leticia") {
+  if (input.value.toLowerCase() === "leticia") {
     pokemonName.innerHTML = "Lelê";
     pokemonNumber.innerHTML = "";
     pokemonImage.src = "/pokedex-vite/assets/pokemon.le.png";
     input.value = "";
   }
 
-  if (input.value === "marcelo") {
+  if (input.value.toLowerCase() === "marcelo") {
     pokemonName.innerHTML = "Macelão";
     pokemonNumber.innerHTML = "";
     pokemonImage.src = "/pokedex-vite/assets/pokemon.pai.png";
     input.value = "";
   }
 
-  if (input.value === "luciana") {
+  if (input.value.toLowerCase() === "luciana") {
     pokemonName.innerHTML = "Mãe";
     pokemonNumber.innerHTML = "";
     pokemonImage.src = "/pokedex-vite/assets/pokemon.mae.png";
     input.value = "";
   }
 
-  if (input.value === "luciano") {
+  if (input.value.toLowerCase() === "luciano") {
     pokemonName.innerHTML = "Lulu";
     pokemonNumber.innerHTML = "";
     pokemonImage.src = "/pokedex-vite/assets/pokemon.lu.png";
@@ -93,10 +94,18 @@ function renderZoeira() {
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  renderZoeira();
-  return;
+  console.log("oi");
 
-  renderPokemon(input.value.toLowerCase());
+  if (
+    input.value.toLowerCase() === "luciano" ||
+    input.value.toLowerCase() === "luciana" ||
+    input.value.toLowerCase() === "marcelo" ||
+    input.value.toLowerCase() === "leticia" ||
+    input.value.toLowerCase() === "vitor"
+  ) {
+    renderZoeira();
+    return;
+  } else renderPokemon(input.value.toLowerCase());
 });
 
 buttonPrev.addEventListener("click", (_event) => {
@@ -109,6 +118,15 @@ buttonPrev.addEventListener("click", (_event) => {
 buttonNext.addEventListener("click", (_event) => {
   searchPokemon += 1;
   renderPokemon(searchPokemon);
+});
+
+buttonPesq.addEventListener("click", (_event) => {
+  _event.preventDefault();
+
+  renderZoeira();
+  return;
+
+  renderPokemon(input.value.toLowerCase());
 });
 
 renderPokemon(searchPokemon);
